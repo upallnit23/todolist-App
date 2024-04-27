@@ -50,7 +50,7 @@ def tasktoperform():
             todolist.append(gettasklist(todolist))
         else:
             print("Invalid choice.")
-
+    return todolist
 
 #This function gets the printed list
 def gettasklist(choice):
@@ -72,6 +72,8 @@ def gettasklist(choice):
         todolist.append("Workout. \n")
     else:
         print("Invalid choice.")
+    
+    
 
 #Function prints to-do list
 def printlist(updatedlist):
@@ -79,11 +81,12 @@ def printlist(updatedlist):
         print(updatedlist)
 
 #This function marks tasks as completed
-def completedtasks():
+def completedtasks(todolist):
     ctask = []
-    while dtask != "end":
-        dtask = int(input("Enter the task completed, or 'end' to end program: "))
-        if dtask == "end":
+    dtask = int(input("Enter task to delete, or 0 to end program: "))
+    while dtask != 0:
+        dtask = int(input("Enter the task completed, or 0 to end program: "))
+        if dtask == 0:
             break
         try:
             dtask = int(dtask)
@@ -96,7 +99,7 @@ def completedtasks():
             print(e)
         except IndexError as e:
             print(e)
-    print(f"This is the updated to-do list: {updatedlist}.")
+    print(f"This is the updated to-do list: {todolist}.")
     print(f"These are the tasks completed and removed from the list: {ctask}.")
 
 
@@ -104,6 +107,7 @@ def completedtasks():
 def quitit():
     print("Thank you for using the to-do list app. ")
 #Main program
+
 titlescreen()
 menuselect = int(input("Please select a number from the menu above. "))
 try:
