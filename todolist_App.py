@@ -31,8 +31,9 @@ def titlescreen():
 #Function to pick tasks to do and format output of to-do list.    
 def tasktoperform():
     todolist = []
-    choice = "incomplete"
-    while choice != "end":
+    task = ""
+    while task != "end":
+
         print("Which task do you want to perform? ")
         print("a - meal prep and cooking meals, ")
         print("b - cleaning rooms in house ")
@@ -45,26 +46,46 @@ def tasktoperform():
 
         choice = input("Enter a letter for the task to complete: ")
         if choice == "end":
+            print(todolist)
             break
-        elif choice in 'abcdefgh':
-            todolist.append(gettasklist(todolist))
-        else:
-            print("Invalid choice.")
+        if choice == "a":
+            todolist.append("Prep and cook meals. \n")
+        elif choice == "b":
+            todolist.append("Clean rooms. \n")
+        elif choice == "c":
+            todolist.append("Do laundry. \n")
+        elif choice == "d":
+            todolist.append("Finish homework. \n")
+        elif choice == "e":
+            todolist.append("Feed and walk pets. \n")
+        elif choice == "f":
+            todolist.append("Check plants and lawn. \n")
+        elif choice == 'g':
+            todolist.append("Personal time. \n")
+        elif choice == 'h':
+            todolist.append("Workout. \n")
+        #elif choice in 'abcdefgh':
+        #    todolist.append(gettasklist(todolist))
+        elif choice >= 'h':
+            print("Invalid choice.  Choose again. ")
+            choice = input("Enter a letter for the task to complete: ")
+    #choice = input("Enter a letter for the task to complete: ")
+
     return todolist
 
 #This function gets the printed list
-def gettasklist(choice):
-    if choice == 'a':
+"""def gettasklist(choice):
+    if choice == "a":
         todolist.append("Prep and cook meals. \n")
-    elif choice == 'b':
+    elif choice == "b":
         todolist.append("Clean rooms. \n")
-    elif choice == 'c':
+    elif choice == "c":
         todolist.append("Do laundry. \n")
-    elif choice == 'd':
+    elif choice == "d":
         todolist.append("Finish homework. \n")
-    elif choice == 'e':
+    elif choice == "e":
         todolist.append("Feed and walk pets. \n")
-    elif choice == 'f':
+    elif choice == "f":
         todolist.append("Check plants and lawn. \n")
     elif choice == 'g':
         todolist.append("Personal time. \n")
@@ -72,7 +93,7 @@ def gettasklist(choice):
         todolist.append("Workout. \n")
     else:
         print("Invalid choice.")
-    
+    """
     
 
 #Function prints to-do list
